@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { ClerkProvider } from "@clerk/nextjs"
 
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -19,7 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body className={inter.className}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
+            <ClerkProvider>{children}</ClerkProvider>
           </ThemeProvider>
         </body>
       </html>
