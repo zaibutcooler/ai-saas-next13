@@ -13,24 +13,26 @@ export async function POST(req: Request) {
     const { userId } = auth()
     const body = await req.json()
     const { messages } = body
+    console.log("starting")
 
-    // if (!userId) {
-    //   return new NextResponse("Unauthorized", { status: 401 })
-    // }
+    if (!userId) {
+      return new NextResponse("Unauthorized", { status: 401 })
+    }
 
-    // if (!key) {
-    //   return new NextResponse("No Api Key Error", { status: 500 })
-    // }
+    if (!key) {
+      return new NextResponse("No Api Key Error", { status: 500 })
+    }
 
-    // if (!messages) {
-    //   return new NextResponse("Messages are required", { status: 400 })
-    // }
+    if (!messages) {
+      return new NextResponse("Messages are required", { status: 400 })
+    }
 
     const response = await openai.chat.completions.create({
-      messages: [{ role: "user", content: "Say this is a test" }],
+      messages: [{ role: "user", content: messages }],
       model: "gpt-3.5-turbo",
     })
-    console.log(response.choices[0].message)
+
+    return NextResponse.json(response.choices[0].message)
   } catch (err) {
     console.log("[chat error]", err)
     return new NextResponse("internalError", { status: 500 })
