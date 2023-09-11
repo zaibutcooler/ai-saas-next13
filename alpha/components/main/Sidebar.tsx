@@ -74,8 +74,10 @@ const Sidebar = () => {
               key={item.href}
               href={item.href}
               className={cn(
-                `text-sm group flex p-3 justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg w-full`,
-                pathname === item.href ? "bg-white/10" : ""
+                `text-sm group flex p-3 justify-start font-medium cursor-pointer dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg w-full`,
+                pathname === item.href
+                  ? "bg-gray-100 hover:bg-gray-200 dark:bg-white/10 "
+                  : ""
               )}
             >
               <div className="flex items-center flex-1">

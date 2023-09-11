@@ -1,5 +1,12 @@
+import { ThemeToggle } from "../theme-toggle"
+
 const LandingHero = () => {
-  return <div>Landing Hero</div>
+  return (
+    <div>
+      {" "}
+      <ThemeToggle />
+    </div>
+  )
 }
 
 export default LandingHero

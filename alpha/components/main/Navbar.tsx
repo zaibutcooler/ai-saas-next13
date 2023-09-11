@@ -7,7 +7,7 @@ import { Button } from "../ui/button"
 const Navbar = () => {
   return (
     <div className="flex items-center p-4">
-      <div className="flex w-full justify-end">
+      <div className="flex w-full justify-end gap-4">
         <UserButton />
       </div>
     </div>

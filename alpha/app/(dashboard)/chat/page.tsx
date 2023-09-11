@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import Header from "@/components/main/Header"
+import Loading from "@/components/main/Loading"
+import None from "@/components/main/None"
 
 import { formSchema } from "./constants"
 
@@ -79,6 +81,13 @@ export default function ChatPage() {
               </Button>
             </form>
           </Form>
+        </div>
+        <div className="space-y-4 mt-4">
+          <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+            <Loading />
+          </div>
+
+          <None label="No conversation started." />
         </div>
       </div>
     </main>
