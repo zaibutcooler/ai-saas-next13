@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import {
   Code,
   ImageIcon,
@@ -59,6 +60,8 @@ const routes = [
 ]
 
 const Sidebar = () => {
+  const pathname = usePathname()
+
   return (
     <div className="space-y-4 py-4 flex flex-col h-full w-full ">
       <div className="px-3 py-2 flex-1">
@@ -70,7 +73,10 @@ const Sidebar = () => {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm group flex p-3 justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg w-full"
+              className={cn(
+                `text-sm group flex p-3 justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg w-full`,
+                pathname === item.href ? "bg-white/10" : ""
+              )}
             >
               <div className="flex items-center flex-1">
                 <item.icon className={cn("h-5 w-5 mr-3", item.color)} />
