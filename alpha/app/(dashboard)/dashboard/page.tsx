@@ -1,9 +1,5 @@
 import { UserButton } from "@clerk/nextjs"
 
 export default function DashboardPage() {
-  return (
-    <main>
-      <UserButton />
-    </main>
-  )
+  return <main>Dashboard</main>
 }
