@@ -12,23 +12,23 @@ export async function POST(req: Request) {
   try {
     const { userId } = auth()
     const body = await req.json()
-    const { messages } = body
+    const { prompt } = body
     console.log("starting")
 
-    if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 })
-    }
+    // if (!userId) {
+    //   return new NextResponse("Unauthorized", { status: 401 })
+    // }
 
     if (!key) {
       return new NextResponse("No Api Key Error", { status: 500 })
     }
 
-    if (!messages) {
+    if (!prompt) {
       return new NextResponse("Messages are required", { status: 400 })
     }
 
     const response = await openai.chat.completions.create({
-      messages: [{ role: "user", content: messages }],
+      messages: prompt,
       model: "gpt-3.5-turbo",
     })
 
