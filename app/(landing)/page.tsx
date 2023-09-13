@@ -10,7 +10,7 @@ export default function IndexPage() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <main className="h-full bg-white overflow-auto">
+    <main className="h-full min-h-screen bg-white dark:bg-gray-900 overflow-auto w-full">
       <div className="mx-auto max-w-screen-xl h-full w-full">
         <LandingNavbar />
         <LandingHero />
