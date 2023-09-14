@@ -39,6 +39,7 @@ export default function ChatPage() {
       console.log(response)
 
       setMusic(response.data.audio)
+
       form.reset()
     } catch (err) {}
   }
