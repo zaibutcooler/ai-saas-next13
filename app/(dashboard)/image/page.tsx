@@ -118,7 +118,7 @@ export default function ImagePage() {
         </div>
         <section className="w-full flex justify-center">
           {images && (
-            <div className="w-1/2">
+            <div className="w-full md:w-1/2">
               <Card className="rounded-lg overflow-hidden">
                 <div className="relative aspect-square">
                   <Image fill alt="Generated" src={images} />

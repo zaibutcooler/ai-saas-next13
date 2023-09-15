@@ -2,7 +2,9 @@
 
 import { useTheme } from "next-themes"
 
+import LandingContact from "@/components/main/LandingContact"
 import LandingContent from "@/components/main/LandingContent"
+import LandingFooter from "@/components/main/LandingFooter"
 import LandingHero from "@/components/main/LandingHero"
 import LandingNavbar from "@/components/main/LandingNavbar"
 
@@ -15,6 +17,8 @@ export default function IndexPage() {
         <LandingNavbar />
         <LandingHero />
         <LandingContent />
+        <LandingContact />
+        <LandingFooter />
       </div>
     </main>
   )
