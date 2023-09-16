@@ -14,6 +14,8 @@ import {
 
 import { cn } from "@/lib/utils"
 
+import Alonica from "./Alonica"
+
 const routes = [
   {
     label: "Dashboard",
@@ -65,9 +67,9 @@ const Sidebar = () => {
   return (
     <div className="space-y-4 py-4 flex flex-col h-full w-full ">
       <div className="px-3 py-2 flex-1">
-        <Link href="/" className="flex items-center pl-2 mb-14">
-          <div className="relative w-8 h-8 mr-4">Logo</div>
-        </Link>
+        <div className="flex items-center pl-2 mb-14">
+          <Alonica />
+        </div>
         <div className="space-y-1 w-ful">
           {routes.map((item) => (
             <Link

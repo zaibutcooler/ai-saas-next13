@@ -6,7 +6,7 @@ import Sidebar from "@/components/main/Sidebar"
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <section>
-      <nav className="hidden md:flex md:w-72 md:h-full md:fixed border-r dark:bg-gray-900">
+      <nav className="hidden md:flex md:w-72 md:h-full md:fixed border-r dark:border-r-0 dark:bg-gray-900">
         <Sidebar />
       </nav>
       <main className="md:pl-72">
