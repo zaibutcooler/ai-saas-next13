@@ -82,7 +82,7 @@ export default function ChatPage() {
                   <FormItem className="col-span-12 lg:col-span-10">
                     <FormControl className="m-0 p-0">
                       <Input
-                        className="border-0 outline-none shadow-none focus-visible:ring-0 focus-visible:ring-transparent"
+                        className="border-0 outline-none shadow-none dark:bg-transparent focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
                         placeholder="How do I calculate the radius of a circle?"
                         {...field}
