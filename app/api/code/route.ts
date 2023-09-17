@@ -1,20 +1,20 @@
 import { NextResponse } from "next/server"
 import { auth } from "@clerk/nextjs"
-import OpenAI from "openai"
-import { ChatCompletionMessage } from "openai/resources/chat"
+import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai"
 
-const key = process.env.OPENAI_SECRET_KEY
+const key = process.env.OPENAI_API_KEY
 
-const openai = new OpenAI({
+const configuration = new Configuration({
   apiKey: key,
 })
 
-const instruction: ChatCompletionMessage = {
+const openai = new OpenAIApi(configuration)
+
+const instructionMessage: ChatCompletionRequestMessage = {
   role: "system",
   content:
-    "You are a professional code generator. You have to answer only in markdown code snippets. Use code comments for explanations.",
+    "You are a code generator. You must answer only in markdown code snippets. Use code comments for explanations.",
 }
-
 export async function POST(req: Request) {
   try {
     const { userId } = auth()
@@ -34,12 +34,12 @@ export async function POST(req: Request) {
       return new NextResponse("Messages are required", { status: 400 })
     }
 
-    const response = await openai.chat.completions.create({
-      messages: [instruction, ...prompt],
+    const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
+      messages: [instructionMessage, ...prompt],
     })
 
-    return NextResponse.json(response.choices[0].message)
+    return NextResponse.json(response.data.choices[0].message)
   } catch (err) {
     console.log("[chat error]", err)
     return new NextResponse("internalError", { status: 500 })

@@ -1,19 +1,12 @@
 import { NextResponse } from "next/server"
 import { auth } from "@clerk/nextjs"
-import OpenAI from "openai"
-import { ChatCompletionMessage } from "openai/resources/chat"
+import { Configuration, OpenAIApi } from "openai"
 
-const key = process.env.OPENAI_SECRET_KEY
-
-const openai = new OpenAI({
-  apiKey: key,
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
 })
 
-const instruction: ChatCompletionMessage = {
-  role: "system",
-  content:
-    "You are a professional code generator. You have to answer only in markdown code snippets. Use code comments for explanations.",
-}
+const openai = new OpenAIApi(configuration)
 
 export async function POST(req: Request) {
   try {
@@ -34,7 +27,7 @@ export async function POST(req: Request) {
     //   return new NextResponse("prompt are required", { status: 400 })
     // }
 
-    const response = await openai.images.generate({
+    const response = await openai.createImage({
       prompt: prompt,
     })
 

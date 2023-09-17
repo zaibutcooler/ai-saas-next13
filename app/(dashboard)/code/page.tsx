@@ -4,7 +4,7 @@ import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import axios from "axios"
 import { Code, MessageSquare } from "lucide-react"
-import { ChatCompletionMessage } from "openai/resources/chat"
+import { ChatCompletionRequestMessage } from "openai"
 import { useForm } from "react-hook-form"
 import ReactMarkdown from "react-markdown"
 import * as z from "zod"
@@ -30,11 +30,11 @@ export default function CodePage() {
 
   const isLoading = form.formState.isSubmitting
 
-  const [messages, setMessages] = useState<ChatCompletionMessage[]>([])
+  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([])
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: ChatCompletionMessage = {
+      const userMessage: ChatCompletionRequestMessage = {
         role: "user",
         content: values.prompt,
       }

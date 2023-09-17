@@ -4,7 +4,6 @@ import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import axios from "axios"
 import { FileAudio, MessageSquare, Video } from "lucide-react"
-import { ChatCompletionMessage } from "openai/resources/chat"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
