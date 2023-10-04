@@ -8,6 +8,7 @@ export default authMiddleware({
     "/api/image",
     "/api/music",
     "/api/video",
+    "/api/webhook",
   ],
 })
 
